@@ -1,7 +1,9 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import {BASE_URL} from '../env'
 import Paginate from './paginate/paginate.component'
+import './list.styles.css'
 
 
 function List() {
@@ -10,7 +12,7 @@ function List() {
     const [currentPage,setCurrentPage]=useState(1);
     const [films,setFilms]=useState([]);
 
-    let URL_PARTS=`v1/films?page=${currentPage}`;
+    let URL_PARTS=`?page=${currentPage}`;
 
     useEffect(()=>
     {
@@ -43,6 +45,7 @@ function List() {
                                     <th scope="col">Description</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Country</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +57,7 @@ function List() {
                                             <td>{film.description.substr(0,15)}...</td>
                                             <td>{film.price}</td>
                                             <td>{film.country}</td>
+                                            <td><Link to={`/film/details/${film.slug}`} title="Details"><i className="btn btn-success small-button"> > </i></Link></td>
                                         </tr>))
                                 }
                                 </tbody>

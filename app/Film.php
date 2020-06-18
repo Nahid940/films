@@ -20,4 +20,9 @@ class Film extends Model
         return $this->hasMany(Genre::class);
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

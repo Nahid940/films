@@ -21,7 +21,8 @@ class FilmController extends Controller
 
     public function show(Film $film)
     {
-        //
+        FilmResource::withoutWrapping();
+        return new FilmResource($film);
     }
 
     public function update(Request $request, Film $film)
