@@ -24,9 +24,7 @@ class FilmResource extends JsonResource
             'price' => $this->price,
             'rating' => $this->ratings,
             'country' => $this->country,
-            'genre' => $this->genre,
             'slug' => $this->slug,
-            'comments'=>$this->comments,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
         ];

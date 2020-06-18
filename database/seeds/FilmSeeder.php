@@ -12,7 +12,7 @@ class FilmSeeder extends Seeder
     public function run()
     {
         $dummy=Faker\Factory::create();
-        for($i=0;$i<100;$i++)
+        for($i=1;$i<=100;$i++)
         {
             \App\Film::create([
                 'name'=>$name=$dummy->unique()->name,
@@ -22,7 +22,7 @@ class FilmSeeder extends Seeder
                 'price'=>rand(100,400),
                 'release'=>$dummy->text(),
                 'date'=>$dummy->date(),
-                'genre'=>"Drama",
+                'genre_id'=>rand(1,10),
                 'country'=>"Bangladesh",
                 'photo'=>$dummy->imageUrl()
             ]);

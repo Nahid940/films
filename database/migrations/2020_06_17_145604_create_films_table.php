@@ -23,7 +23,7 @@ class CreateFilmsTable extends Migration
             $table->string('ticket')->nullable();
             $table->float('price');
             $table->char('country',30);
-            $table->char('genre',80);
+            $table->integer('genre_id')->references('id')->on('genres');
             $table->char('slug',150);
             $table->string('photo')->nullable();
             $table->timestamps();
