@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model
 {
-    protected $fillable=['name,description,date,rating,price'];
+    protected $fillable=['name',
+        'description','date',
+        'rating','price',
+        'photo','country',
+        'genre_id','slug','release'];
 
     public function comments()
     {

@@ -45,17 +45,25 @@ const Details=(props)=>
                                 {comments?comments.map((comment,index)=>(
                                     <div className="media" key={index}>
                                         <div className="media-body">
-                                            <h6 className="media-heading user_name text-primary">{comment.name}</h6>
+                                            <div className="comment-user">
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1200px-User_font_awesome.svg.png" alt="Image"/>
+                                                <h6 className="media-heading user_name text-primary">{comment.name}</h6>
+                                            </div>
                                             <p className="comment">{comment.comment}</p>
                                         </div>
                                     </div>
                                 )) : 'No Comments Posted Yet !!'}
 
                         </div>
+
+
+                        <div className="card-body">
+                            <CommentBox slug={slug} getNewComment={getNewComment}/>
+                        </div>
                     </div>
                 </div>
             </div>
-            <CommentBox slug={slug} getNewComment={getNewComment}/>
+
         </div>
     )
 }

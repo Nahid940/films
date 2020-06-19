@@ -76,7 +76,7 @@ const CommentBox=(props)=>
 
     return(
             <div className="row justify-content-center">
-                <div className="col-md-8 ">
+                <div className="col-md-12">
                     <h5>Leave a Comment</h5>
                     {success?<span className='text-success'>Your comment has been posted successfully!!</span>:''}
                     <form name="contactForm" onSubmit={triggerComment} id="contactForm" method="post" action="">
