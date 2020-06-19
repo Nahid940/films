@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios'
 import {BASE_URL} from '../../env'
+import {Link} from 'react-router-dom'
 const CreateFilm=()=>
 {
     const [success,setSuccess]=useState('')
@@ -35,7 +36,10 @@ const CreateFilm=()=>
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div className="card-header text-white bg-success "><h6>Add New Film</h6></div>
+                        <div className="card-header text-white bg-success ">
+                            <h4 className="list-header">Add New Film</h4>
+                            <span className="right"><Link to="/" className="btn btn-danger small-button">X</Link></span>
+                        </div>
                         <div className="card-body">
                             {success?<div className="alert alert-success">{success}</div>:''}
                             {error?<div className="alert alert-danger">{error}</div>:''}
@@ -57,7 +61,7 @@ const CreateFilm=()=>
                                     </div>
                                     <div className="col">
                                         <label htmlFor="rating">Rating</label>
-                                        <input type="number" name="rating"  className="form-control" required/>
+                                        <input type="number" min="1" max="5" name="rating"  className="form-control" required/>
                                     </div>
                                 </div>
                                 <div className="form-row">

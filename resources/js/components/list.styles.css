@@ -1,3 +1,10 @@
 .small-button{
-    padding: 0px 2px;
+    padding: 0px 6px;
+}
+.list-header{
+    display: inline;
+}
+
+.right{
+    float: right;
 }

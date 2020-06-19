@@ -28,8 +28,11 @@ class FilmRequest extends FormRequest
             'description'=>'required',
             'date'=>'required',
             'price'=>'required',
+            'ticket'=>'required',
             'country'=>'required',
-            'rating'=>'required',
+            'genre_id'=>'required',
+            'rating'=>'required|min:1|max:5',
+            'release'=>'required',
         ];
     }
 

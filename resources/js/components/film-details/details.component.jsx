@@ -30,8 +30,11 @@ const Details=(props)=>
             <div className="row justify-content-center">
                 <div className="col-md-8 ">
                     <div className="card">
+                        <div className="card-header text-white bg-success ">
+                            <h4 className="list-header">Film Details</h4>
+                            <span className="right"><Link to="/" className="btn btn-danger small-button">X</Link></span>
+                        </div>
                         <div className="card-body">
-                            <h2 className="card-title">Film Details</h2>
                             <h3 className="card-subtitle mb-2 text-danger">Name: {film.name}</h3>
                             <p className="card-text">{film.description}</p>
                             <p>Date: {film.date}</p>

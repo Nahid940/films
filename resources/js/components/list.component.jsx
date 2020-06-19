@@ -35,7 +35,10 @@ function List() {
             <div className="row justify-content-center">
                 <div className="col-md-8">
                     <div className="card">
-                        <div className="card-header">Films List</div>
+                        <div className="card-header">
+                            <h4 className="list-header">Films List</h4>
+                            <span className="right"><Link to="/" className="btn btn-danger small-button">X</Link></span>
+                        </div>
                         <div className="card-body">
                             <table className="table">
                                 <thead>
