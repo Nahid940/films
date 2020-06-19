@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::resource('/v1/films','FilmController');
+
+Route::resource('/v1/films/comment','CommentController');

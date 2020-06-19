@@ -3,47 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Film;
+use App\Http\Requests\CommentRequest;
+use App\Repo\CommentRepo;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    protected $repo;
+
+    public function __construct(CommentRepo $repo)
+    {
+        $this->repo=$repo;
+    }
+
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function store(CommentRequest $request)
     {
-        //
+        $validated=$request->validated();
+        $id=$this->repo->getFilmIDbySlug($request->slug);
+        if($id)
+        {
+            Comment::create([
+                'user_id'=>1,
+                'film_id'=>$id,
+                'name'=>$request->name,
+                'comment'=>$request->comment
+            ]);
+            return [
+                'status'=>200,
+                'message'=>'Success'
+            ];
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
     public function show(Comment $comment)
     {
         //

@@ -2,15 +2,28 @@ import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import {BASE_URL} from '../../env'
+import CommentBox from '../comment/comment.component'
+import './details.styles.css'
 
 const Details=(props)=>
 {
     const [film,setFilm]=useState({})
+    const [comments,setComments]=useState([])
     let slug=props.match.params.slug;
 
     useEffect(()=>{
-        axios.get(BASE_URL+`/${slug}`).then(response=>setFilm(response.data))
+        axios.get(BASE_URL+`/${slug}`).then(response=>
+        {   setFilm(response.data);
+            setComments(response.data.comments)
+        }
+        )
     },[])
+
+    const getNewComment=(comment)=>
+    {
+        setComments([...comments,comment])
+        // console.log(comment)
+    }
 
     return(
         <div className="container">
@@ -25,9 +38,24 @@ const Details=(props)=>
                             <p>Rating: {film.rating}</p>
                             <p>Price: {film.price}</p>
                         </div>
+
+                        <div className="card-body">
+                            <h4>Comments</h4>
+                            <hr/>
+                                {comments?comments.map((comment,index)=>(
+                                    <div className="media" key={index}>
+                                        <div className="media-body">
+                                            <h6 className="media-heading user_name text-primary">{comment.name}</h6>
+                                            <p className="comment">{comment.comment}</p>
+                                        </div>
+                                    </div>
+                                )) : 'No Comments Posted Yet !!'}
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <CommentBox slug={slug} getNewComment={getNewComment}/>
         </div>
     )
 }
