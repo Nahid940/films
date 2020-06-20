@@ -3,12 +3,13 @@ import axios from 'axios'
 import {BASE_URL} from '../../env'
 import './comment.styles.css'
 
+
 const CommentBox=(props)=>
 {
 
     const [comment,setComment]=useState({
         name:'',
-        comment:''
+        comment:'',
     })
 
     const [success,setSuccess]=useState(false)
@@ -44,7 +45,8 @@ const CommentBox=(props)=>
                 {
                     comment: comment.comment,
                     name: comment.name,
-                    slug:props.slug
+                    slug:props.slug,
+                    user_id:props.user_id
                 }
             )
                 .then(res=>{

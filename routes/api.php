@@ -21,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/v1/films','FilmController');
 
 Route::resource('/v1/films/comment','CommentController');
+
+Route::post('/v1/films/register','RegistrationController@register');
+Route::post('/v1/films/login','LoginController@login');
+Route::post('/v1/films/logout','LoginController@logout');

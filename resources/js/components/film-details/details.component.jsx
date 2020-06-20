@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {BASE_URL} from '../../env'
 import CommentBox from '../comment/comment.component'
 import './details.styles.css'
+import {connect} from 'react-redux'
 
 const Details=(props)=>
 {
@@ -22,8 +23,9 @@ const Details=(props)=>
     const getNewComment=(comment)=>
     {
         setComments([...comments,comment])
-        // console.log(comment)
     }
+
+    const {loggedINUSer}=props
 
     return(
         <div className="container">
@@ -59,9 +61,10 @@ const Details=(props)=>
 
                         </div>
 
-
                         <div className="card-body">
-                            <CommentBox slug={slug} getNewComment={getNewComment}/>
+                            {loggedINUSer?<CommentBox user_id={loggedINUSer.user.id} slug={slug} getNewComment={getNewComment}/>
+                                :<span className="text-danger"><Link to="/login">Login</Link> to post comment !!</span>
+                            }
                         </div>
                     </div>
                 </div>
@@ -71,4 +74,8 @@ const Details=(props)=>
     )
 }
 
-export default Details
+const mapStateToProps=(state)=>({
+    loggedINUSer:state.user.loggedINUser
+})
+
+export default connect(mapStateToProps)(Details)

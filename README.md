@@ -1,3 +1,16 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-<p align="center"><img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" width="400"></p>
+#Intro
+This project is developed with react and laravel. A Simple Film archive with film details
+and comment system. Only logged in users can post comment.
 
+#Instructions
+
+###Clone the project
+### Run 
+1. `composer update`
+2. Edit .env file
+3. Run `php artisan:migrate` to set MySql DB
+4. Run `npm install`
+5. Run php artisan serve to start laravel project
+6. run `npm run dev`
+
+####Developed With Passion
