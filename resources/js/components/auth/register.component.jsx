@@ -15,7 +15,13 @@ function Register({history}) {
         const formData=new FormData(e.target)
         axios.post(BASE_URL+"/register",formData).then(
             response=>history.push("/login")
-        )
+        ).catch(error => {
+            if (error.response) {
+                setError("Invalid informations!!")
+            } else {
+                // console.log('Error', error);
+            }
+        });
     }
     return(
         <div className="container">
@@ -32,7 +38,7 @@ function Register({history}) {
                             <form onSubmit={handleSubmit} id="submit-form">
                                 <div className="form-row">
                                     <div className="col">
-                                        <label htmlFor="exampleInputEmail1">Email</label>
+                                        <label htmlFor="exampleInputEmail1">Name</label>
                                         <input type="text"  name="name" className="form-control" placeholder="Name" required/>
                                     </div>
                                 </div>

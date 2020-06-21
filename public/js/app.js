@@ -74217,13 +74217,8 @@ function Login(_ref) {
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
-      success = _useState2[0],
-      setSuccess = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
-      _useState4 = _slicedToArray(_useState3, 2),
-      error = _useState4[0],
-      setError = _useState4[1];
+      error = _useState2[0],
+      setError = _useState2[1];
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -74366,6 +74361,12 @@ function Register(_ref) {
     var formData = new FormData(e.target);
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(_env__WEBPACK_IMPORTED_MODULE_3__["BASE_URL"] + "/register", formData).then(function (response) {
       return history.push("/login");
+    })["catch"](function (error) {
+      if (error.response) {
+        setError("Invalid informations!!");
+      } else {
+        console.log('Error', error);
+      }
     });
   };
 
@@ -74401,7 +74402,7 @@ function Register(_ref) {
     className: "col"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "exampleInputEmail1"
-  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "text",
     name: "name",
     className: "form-control",
