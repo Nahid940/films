@@ -6416,7 +6416,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".right{\n    text-align: right;\n    margin-top: 5px;\n}", ""]);
+exports.push([module.i, ".right{\r\n    text-align: right;\r\n    margin-top: 5px;\r\n}", ""]);
 
 // exports
 
@@ -6435,7 +6435,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".mt-10{\n    margin-top: 10px;\n}\n\n.right-side{\n    float: right;\n}", ""]);
+exports.push([module.i, ".mt-10{\r\n    margin-top: 10px;\r\n}\r\n\r\n.right-side{\r\n    float: right;\r\n}", ""]);
 
 // exports
 
@@ -6454,7 +6454,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".comment{\n    margin-left: 34px;\n}\n\n.comment-user{\n    display: flex;\n    flex-direction: row\n}\n.comment-user h6{\n    margin: 5px;\n}\n.comment-user img{\n    width:4%;\n}\n", ""]);
+exports.push([module.i, ".comment{\r\n    margin-left: 34px;\r\n}\r\n\r\n.comment-user{\r\n    display: flex;\r\n    flex-direction: row\r\n}\r\n.comment-user h6{\r\n    margin: 5px;\r\n}\r\n.comment-user img{\r\n    width:4%;\r\n}\r\n\r\n\r\n.text-small{\r\n    font-size: 10px !important;\r\n    margin-top: 6px;\r\n}", ""]);
 
 // exports
 
@@ -6473,7 +6473,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".small-button{\n    padding: 0px 6px;\n}\n.list-header{\n    display: inline;\n}\n\n.right{\n    float: right;\n}", ""]);
+exports.push([module.i, ".small-button{\r\n    padding: 0px 6px;\r\n}\r\n.list-header{\r\n    display: inline;\r\n}\r\n\r\n.right{\r\n    float: right;\r\n}", ""]);
 
 // exports
 
@@ -6492,7 +6492,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".pagination {\n    margin-top: 20px;\n    text-align: center;\n    margin-bottom: 10px;\n\n}\n\n.page-button {\n    color: black;\n    padding: 8px 16px;\n    text-decoration: none;\n    border: 1px solid #ddd;\n    color: #000;\n    cursor: pointer;\n}\n\n.btn-active{\n    background-color: #aeef72;\n}", ""]);
+exports.push([module.i, ".pagination {\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    margin-bottom: 10px;\r\n\r\n}\r\n\r\n.page-button {\r\n    color: black;\r\n    padding: 8px 16px;\r\n    text-decoration: none;\r\n    border: 1px solid #ddd;\r\n    color: #000;\r\n    cursor: pointer;\r\n}\r\n\r\n.btn-active{\r\n    background-color: #aeef72;\r\n}", ""]);
 
 // exports
 
@@ -73138,8 +73138,8 @@ function Login(_ref) {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(_env__WEBPACK_IMPORTED_MODULE_3__["BASE_URL"] + "/login", formdata).then(function (response) {
       setCurrentUser(response.data.success);
       history.push("/");
-    })["catch"](error).then(function (response) {
-      return console.log(response);
+    })["catch"](function (response) {
+      console.log(response);
     });
   };
 
@@ -73212,7 +73212,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(null, mapDispatchToProps)(Login));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(null, mapDispatchToProps)(Login)));
 
 /***/ }),
 
@@ -73251,7 +73251,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Register() {
+function Register(_ref) {
+  var history = _ref.history;
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       success = _useState2[0],
@@ -73266,7 +73268,7 @@ function Register() {
     e.preventDefault();
     var formData = new FormData(e.target);
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(_env__WEBPACK_IMPORTED_MODULE_3__["BASE_URL"] + "/register", formData).then(function (response) {
-      return console.log(response);
+      return history.push("/login");
     });
   };
 
@@ -73352,7 +73354,7 @@ function Register() {
   }, "Register"))))))));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Register));
 
 /***/ }),
 
@@ -73640,7 +73642,10 @@ var Details = function Details(props) {
     className: "card-body"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "card-subtitle mb-2 text-danger"
-  }, "Name: ", film.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, "Name: ", film.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: film.photo ? "/storage/".concat(film.photo) : '/img.png',
+    alt: "Film Poster"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text"
   }, film.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Date: ", film.date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Rating: ", film.rating), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Price: ", film.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
@@ -73657,7 +73662,9 @@ var Details = function Details(props) {
       alt: "Image"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
       className: "media-heading user_name text-primary"
-    }, comment.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, comment.name), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "text-danger text-small"
+    }, " ", comment.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
       className: "comment"
     }, comment.comment)));
   }) : 'No Comments Posted Yet !!'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -74308,12 +74315,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var Header = function Header(_ref) {
   var loggedINUser = _ref.loggedINUser,
-      setUserLogout = _ref.setUserLogout;
+      setUserLogout = _ref.setUserLogout,
+      history = _ref.history;
 
   var logOut = function logOut() {
     axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(_env__WEBPACK_IMPORTED_MODULE_4__["BASE_URL"] + "/logout", {
       id: loggedINUser.user.id
-    }).then(setUserLogout(null));
+    }).then(function (response) {
+      setUserLogout(null);
+      history.push('/');
+    });
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -74378,7 +74389,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Header));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Header)));
 
 /***/ }),
 
@@ -74481,6 +74492,7 @@ var userReducer = function userReducer() {
       return _objectSpread(_objectSpread({}, state), {}, {
         loggedINUser: action.payload
       });
+    // set loggedINUser = null when user logged out
 
     case 'SET_LOGGED_OUT_USER':
       return _objectSpread(_objectSpread({}, state), {}, {
@@ -74514,8 +74526,8 @@ var userReducer = function userReducer() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /usr/share/nginx/html/laravel-intor/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /usr/share/nginx/html/laravel-intor/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\xampp\htdocs\films\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\xampp\htdocs\films\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

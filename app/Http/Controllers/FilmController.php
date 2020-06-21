@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Classes\FileProcessor;
 use App\Film;
 use App\Http\Requests\FilmRequest;
+use App\Http\Resources\CommentResource;
 use App\Http\Resources\FilmResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

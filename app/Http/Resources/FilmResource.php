@@ -25,7 +25,7 @@ class FilmResource extends JsonResource
             'rating' => $this->rating,
             'country' => $this->country,
             'slug' => $this->slug,
-            'comments' => $this->comments,
+            'comments' => CommentResource::collection($this->comments),
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
         ];

@@ -1,11 +1,11 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import {BASE_URL} from '../../env'
 import './auth.styles.css'
 
 
-function Register() {
+function Register({history}) {
 
     const [success,setSuccess]=useState("")
     const [error,setError]=useState("")
@@ -13,7 +13,9 @@ function Register() {
     {
         e.preventDefault()
         const formData=new FormData(e.target)
-        axios.post(BASE_URL+"/register",formData).then(response=>console.log(response))
+        axios.post(BASE_URL+"/register",formData).then(
+            response=>history.push("/login")
+        )
     }
     return(
         <div className="container">
@@ -62,6 +64,5 @@ function Register() {
             </div>
         </div>
     )
-
 }
-export default Register
+export default withRouter(Register)

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Resources\CommentResource;
 use Illuminate\Database\Eloquent\Model;
 
 class Film extends Model

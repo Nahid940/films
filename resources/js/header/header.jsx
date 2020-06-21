@@ -1,16 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios'
 import {BASE_URL} from '../env'
 import {setUserLogout} from '../redux/user/user.actions'
 
-const Header = ({loggedINUser,setUserLogout}) =>
+const Header = ({loggedINUser,setUserLogout,history}) =>
 {
     const logOut=()=>
     {
-        axios.post(BASE_URL+`/logout`,{id:loggedINUser.user.id}).then(
-            setUserLogout(null)
+        axios.post(BASE_URL+`/logout`,{id:loggedINUser.user.id}).then(response=>
+            {
+                setUserLogout(null);
+                history.push('/')
+            }
         )
     }
 
@@ -58,4 +61,4 @@ const mapStateToProps=(state)=>
 const mapDispatchToProps=dispatch=>({
     setUserLogout:user=>dispatch(setUserLogout(user))
 })
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Header))

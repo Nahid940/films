@@ -12,3 +12,9 @@
 .comment-user img{
     width:4%;
 }
+
+
+.text-small{
+    font-size: 10px !important;
+    margin-top: 6px;
+}

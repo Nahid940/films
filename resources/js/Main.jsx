@@ -21,7 +21,7 @@ const Main=({loggedINUSer})=>
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/films" component={List}/>
                 <Route exact path="/film/details/:slug" component={Details}/>
-                <Route path="/films/create" component={CreateFilm}/>
+                <Route path="/films/create" component={CreateFilm}   />
                 <Route path="/films/:slug" component={View}/>
             </Switch>
         </>

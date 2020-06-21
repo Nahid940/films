@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import {BASE_URL} from '../../env'
 import './auth.styles.css'
 import {connect} from 'react-redux'
@@ -20,8 +20,9 @@ function Login({setCurrentUser,history}) {
             {
                 setCurrentUser(response.data.success)
                 history.push("/")
-            }
-            ).catch(error).then(response=>console.log(response))
+            }).catch(response => {
+                console.log(response);
+            });
     }
 
     return(
@@ -65,4 +66,4 @@ const mapDispatchToProps=(dispatch)=>
 ({
     setCurrentUser:user=>dispatch(setCurrentUser(user))
 })
-export default connect(null,mapDispatchToProps)(Login)
+export default withRouter(connect(null,mapDispatchToProps)(Login))

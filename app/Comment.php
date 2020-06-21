@@ -8,4 +8,6 @@ class Comment extends Model
 {
     //
     protected $fillable=['user_id','film_id','name','comment'];
+
+
 }

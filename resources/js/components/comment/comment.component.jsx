@@ -6,7 +6,6 @@ import './comment.styles.css'
 
 const CommentBox=(props)=>
 {
-
     const [comment,setComment]=useState({
         name:'',
         comment:'',
@@ -20,6 +19,7 @@ const CommentBox=(props)=>
             [name]:value
         })
     }
+
 
     const [comment_error,setCommentError]=useState("")
     const [name_error,setNameError]=useState("")
@@ -36,7 +36,6 @@ const CommentBox=(props)=>
             comment: comment.comment,
             name: comment.name,
             articleID:props.articleID
-
         })
 
         if(comment.comment)
