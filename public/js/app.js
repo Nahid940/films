@@ -74254,9 +74254,7 @@ function Login(_ref) {
     className: "btn btn-danger small-button"
   }, "X"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
-  }, success ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "alert alert-success"
-  }, success) : '', error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "alert alert-danger"
   }, error) : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: handleSubmit,
@@ -74364,8 +74362,7 @@ function Register(_ref) {
     })["catch"](function (error) {
       if (error.response) {
         setError("Invalid informations!!");
-      } else {
-        console.log('Error', error);
+      } else {// console.log('Error', error);
       }
     });
   };

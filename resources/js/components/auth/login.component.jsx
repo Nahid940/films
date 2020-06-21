@@ -38,7 +38,6 @@ function Login({setCurrentUser,history}) {
                             <span className="right"><Link to="/" className="btn btn-danger small-button">X</Link></span>
                         </div>
                         <div className="card-body">
-                            {success?<div className="alert alert-success">{success}</div>:''}
                             {error?<div className="alert alert-danger">{error}</div>:''}
                             <form onSubmit={handleSubmit} id="submit-form">
                                 <div className="form-row">
