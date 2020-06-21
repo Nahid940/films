@@ -12,6 +12,7 @@ const Header = ({loggedINUser,setUserLogout,history}) =>
         axios.post(BASE_URL+`/logout`,{id:loggedINUser.user.id}).then(response=>
             {
                 setUserLogout(null);
+                localStorage.clear();
                 history.push('/')
             }
         )

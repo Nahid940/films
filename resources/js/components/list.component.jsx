@@ -21,7 +21,8 @@ function List() {
             {
                 setFilms(response.data.data)
                 setCurrentPage(response.data.meta.current_page)
-                setTotalPages(response.data.meta.total)
+                setTotalPages(response.data.meta.last_page)
+                // console.log(response)
             })
     },[currentPage]);
 

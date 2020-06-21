@@ -9,7 +9,6 @@ import {setCurrentUser} from '../../redux/user/user.actions'
 
 function Login({setCurrentUser,history}) {
 
-    const [success,setSuccess]=useState("")
     const [error,setError]=useState("")
     const handleSubmit=(e)=>
     {
@@ -20,8 +19,12 @@ function Login({setCurrentUser,history}) {
             {
                 setCurrentUser(response.data.success)
                 history.push("/")
-            }).catch(response => {
-                console.log(response);
+            }).catch(error => {
+                if (error.response) {
+                    setError("Invalid credentials !!")
+                } else {
+                    console.log('Error', error);
+                }
             });
     }
 

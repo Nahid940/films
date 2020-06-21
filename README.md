@@ -4,16 +4,16 @@ and comment system. Only logged in users can post comment.
 
 ## Instructions
 
-## Clone the project first
+#### Clone the project first
 
-## Laravel Version 7.16.1
+#### Laravel Version 7.16.1
 
-## Passport Version 9.2
+#### Passport Version 9.2
 
-## React Version 16.13.1
+#### React Version 16.13.1
 
-## Steps
-===================================================================================== 
+#### Steps
+==============================================================================
 1. Run `composer update`
 2. Edit .env.example file
 3. Run `php artisan key:generate`
@@ -23,6 +23,6 @@ and comment system. Only logged in users can post comment.
 7. Run `npm install`
 8. Run `php artisan serve` to start laravel project
 9. run `npm run dev`
-=====================================================================================
+===============================================================================
 
 ## Developed With Passion

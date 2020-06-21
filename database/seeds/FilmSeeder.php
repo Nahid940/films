@@ -12,7 +12,7 @@ class FilmSeeder extends Seeder
     public function run()
     {
         $dummy=Faker\Factory::create();
-        for($i=1;$i<=100;$i++)
+        for($i=1;$i<=6;$i++)
         {
             \App\Film::create([
                 'name'=>$name=$dummy->unique()->name,

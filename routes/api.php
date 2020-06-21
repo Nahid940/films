@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/v1/films','FilmController');
 
-Route::resource('/v1/films/comment','CommentController');
+Route::resource('/v1/films/comment','CommentController')->middleware('auth:api');
 
 Route::post('/v1/films/register','RegistrationController@register');
 Route::post('/v1/films/login','LoginController@login');

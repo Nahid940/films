@@ -2,6 +2,7 @@ import React, { Component,useState,useEffect } from 'react'
 import axios from 'axios'
 import {BASE_URL} from '../../env'
 import './comment.styles.css'
+import {connect} from 'react-redux'
 
 
 const CommentBox=(props)=>
@@ -20,23 +21,12 @@ const CommentBox=(props)=>
         })
     }
 
-
     const [comment_error,setCommentError]=useState("")
     const [name_error,setNameError]=useState("")
-
-    const headers = {
-        'Content-Type': 'application/json'
-    };
 
     const triggerComment=(e)=>
     {
         e.preventDefault()
-
-        const data=JSON.stringify({
-            comment: comment.comment,
-            name: comment.name,
-            articleID:props.articleID
-        })
 
         if(comment.comment)
         {
@@ -46,8 +36,14 @@ const CommentBox=(props)=>
                     name: comment.name,
                     slug:props.slug,
                     user_id:props.user_id
-                }
-            )
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ` + props.loggedINUser.token,
+                        'Accept': 'application/json'
+                    }
+                })
                 .then(res=>{
                     if(res.data.status==200)
                     {
@@ -99,4 +95,8 @@ const CommentBox=(props)=>
     )
 }
 
-export default CommentBox
+const mapStateToProps=(state)=>({
+    loggedINUser:state.user.loggedINUser
+})
+
+export default connect(mapStateToProps)(CommentBox)
